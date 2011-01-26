@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>SisCB</title>
+        <link type="text/css" rel="stylesheet" media="screen" href="assets/css/jqtouch.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="assets/css/master.css">
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="assets/js/jqtouch/jquery.js"></script>
+        <script type="text/javascript" src="assets/js/jqtouch/jqtouch.js"></script>
+        <script type="text/javascript" src="assets/js/jqtouch/jqt.dynamicheight.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+    </head>
+    
+    <body id="jqt" onload="dateAdd()">
+    <!-- local para tela de login -->
+    
+    <!-- pagina inicial -->
+        <div id="home">
+            <div class="toolbar">
+                <h1>SisCB</h1>
+                <a class="button flip" href="#settings">Configs</a>
+            </div>
+            <ul class="rounded">
+                <li class="arrow"><a href="#reqs">Requerimentos</a></li>
+                <li class="arrow"><a href="#help">Ajuda</a></li>
+            </ul>
+        </div>
+        
+        <!-- pagina ajuda -->
+        <div id="help">
+            <div class="toolbar">
+                <h1>Ajuda</h1>
+                <a class="button back" href="#">Voltar</a>
+            </div>
+            <div class="edgetoedge">
+            	<br><br>
+                <p align="center">Primeira versão multi-plataforma do sisCB - versão 0.01 .</p>
+                <br><br>
+            </div>
+        </div>
+        
+        <!-- pagina requisicoes -->
+        <div id="reqs">
+            <div class="toolbar">
+                <h1>Requisições</h1>
+                <a class="button back" href="#">Voltar</a>
+                <a class="button slideup" href="#createEntry">+</a>
+            </div>
+            <ul class="rounded">
+                <li id="Template" class="entry" style="display:none">
+                    <span class="id"></span>
+                    <span class="dv"></span>
+                    <span class="ano"></span>
+                    <span class="endereco"></span>
+                    <span class="delete">Delete</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- formulario 1 -->
+        <div id="createEntry">
+            <div class="toolbar">
+                <h1>Nova entrada</h1>
+                <a class="button cancel" href="#">Cancelar</a>
+            </div>
+            <form method="post">
+                <ul class="rounded">
+                    <li><input type="text" placeholder="Food" name="food" id="food" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
+                    <li><input type="text" placeholder="Calories" name="calories" id="calories" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
+                    <li><input type="submit" class="submit" name="action" value="Salvar" /></li>
+                </ul>
+            </form>
+        </div>
+        
+        <!-- formulario 2 -->
+        <div id="settings">
+            <div class="toolbar">
+                <h1>Configurações</h1>
+                <a class="button cancel" href="#">Cancelar</a>
+            </div>
+            <form method="post">
+                <ul class="rounded">
+                    <li><input placeholder="Age" type="text" name="age" id="age" /></li>
+                    <li><input placeholder="Weight" type="text" name="weight" id="weight" /></li>
+                    <li><input placeholder="Budget" type="text" name="budget" id="budget" /></li>
+                    <li><input type="submit" class="submit" name="action" value="Salvar" /></li>
+                </ul>
+            </form>
+        </div>
+    </body>
+</html>
