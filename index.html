@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>SisCB</title>
@@ -11,7 +12,7 @@
         <script type="text/javascript" src="assets/js/app.js"></script>
     </head>
     
-    <body id="jqt" onload="dateAdd()">
+    <body id="jqt">
     <!-- local para tela de login -->
     
     <!-- pagina inicial -->
@@ -44,7 +45,7 @@
             <div class="toolbar">
                 <h1>Requisições</h1>
                 <a class="button back" href="#">Voltar</a>
-                <a class="button slideup" href="#createEntry">+</a>
+                
             </div>
             <ul class="rounded">
                 <li id="Template" class="entry" style="display:none">
@@ -52,38 +53,36 @@
                     <span class="dv"></span>
                     <span class="ano"></span>
                     <span class="endereco"></span>
-                    <span class="delete">Delete</span>
+                    <span class="vist"></span>
                 </li>
             </ul>
         </div>
         
         <!-- formulario 1 -->
-        <div id="createEntry">
+        <div id="vistoriar">
             <div class="toolbar">
-                <h1>Nova entrada</h1>
+                <h1>Vistoriar</h1>
                 <a class="button cancel" href="#">Cancelar</a>
             </div>
             <form method="post">
                 <ul class="rounded">
-                    <li><input type="text" placeholder="Food" name="food" id="food" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
-                    <li><input type="text" placeholder="Calories" name="calories" id="calories" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
+                    <li><input type="text" placeholder="Dv" name="dv" id="dv" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
+                    <li><input type="text" placeholder="Ano" name="ano" id="ano" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
                     <li><input type="submit" class="submit" name="action" value="Salvar" /></li>
                 </ul>
             </form>
         </div>
         
-        <!-- formulario 2 -->
+        <!-- Configs -->
         <div id="settings">
             <div class="toolbar">
                 <h1>Configurações</h1>
-                <a class="button cancel" href="#">Cancelar</a>
+                <a class="button cancel" href="#">Voltar</a>
             </div>
             <form method="post">
                 <ul class="rounded">
-                    <li><input placeholder="Age" type="text" name="age" id="age" /></li>
-                    <li><input placeholder="Weight" type="text" name="weight" id="weight" /></li>
-                    <li><input placeholder="Budget" type="text" name="budget" id="budget" /></li>
-                    <li><input type="submit" class="submit" name="action" value="Salvar" /></li>
+                	<li class="arrow"><a href="#" onclick="importar()">Importar dados</a></li>
+                	<li class="arrow"><a href="#export">Exportar dados</a></li>
                 </ul>
             </form>
         </div>
