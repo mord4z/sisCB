@@ -8,23 +8,22 @@ var jQT = $.jQTouch({
 $(document).ready(function() {
 	jQT.resetHeight();
     $('#createEntry form').submit(createEntry);
-    $('#settings form').submit(saveSettings);
-    $('#settings').bind('pageAnimationStart', loadSettings);
+    //$('#settings form').submit(saveSettings);
+    //$('#settings').bind('pageAnimationStart', loadSettings);
     $('#home li a').click(function(){
         var dayOffset = this.id;
         var date = new Date();
         date.setDate(date.getDate() - dayOffset);
         sessionStorage.currentDate = date.getDate() + '/' + date.getMonth() + 1 + '/' + date.getFullYear();
         refreshEntries();
-        
     });
     var currentDate = sessionStorage.currentDate;
-    $('#home h1').text('SisCB - '+currentDate);
+    $('#home h1').text('SisCB - '+ currentDate + '');
     var shortName = 'sisCB';
     var version = '1.0';
     var displayName = 'sisCB';
     var maxSize = 33554432;
-    db = openDatabase(shortName, version, displayName, maxSize);
+    db = window.openDatabase(shortName, version, displayName, maxSize);
     db.transaction(
         function(transaction) {
             transaction.executeSql(
@@ -40,7 +39,7 @@ $(document).ready(function() {
     );
 });
 
-function saveSettings() {
+/*function saveSettings() {
     localStorage.age = $('#age').val();
     localStorage.budget = $('#budget').val();
     localStorage.weight = $('#weight').val();
@@ -52,7 +51,7 @@ function loadSettings() {
     $('#age').val(localStorage.age);
     $('#budget').val(localStorage.budget);
     $('#weight').val(localStorage.weight);
-}
+}*/
 
 function refreshEntries() {
     $('#reqs ul li:gt(0)').remove();
@@ -65,6 +64,7 @@ function refreshEntries() {
                     for (var i=0; i < result.rows.length; i++) {
                         var row = result.rows.item(i);
                         var newEntryRow = $('#Template').clone();
+                        var btn = "<a href='#vistoriar' style='color:#fff'>Vistoriar</a>";
                         newEntryRow.removeAttr('id');
                         newEntryRow.removeAttr('style');
                         newEntryRow.data('entryId', row.id);
@@ -73,12 +73,23 @@ function refreshEntries() {
                         newEntryRow.find('.dv').text(row.dv+'/');
                         newEntryRow.find('.ano').text(row.ano+' - ');
                         newEntryRow.find('.endereco').text(row.endereco);
-                        newEntryRow.find('.delete').click(function(){
+                        newEntryRow.find('.vist').append(btn);
+                        newEntryRow.find('.vist').click(function(){
                             var clickedEntry = $(this).parent();
                             var clickedEntryId = clickedEntry.data('entryId');
-                            deleteEntryById(clickedEntryId);
-                            clickedEntry.slideUp();
+                            vistoriar(clickedEntryId);
+                            //clickedEntry.slideUp();
                         });
+                        /*newEntryRow.find('.vist').click(function(){
+                            var clickedEntry = $(this).parent();
+                            var clickedEntryId = clickedEntry.data('entryId');
+                            //editEntryById(clickedEntryId1);
+                            var Src= "#vistoriar";
+							window.location = Src;
+                            //$('#editEntryById').click();
+                            //window.location = $('#editEntryById').attr('href', Src);
+                            //clickedEntry1.slideUp();
+                        });*/
                     }
                 },
                 errorHandler
@@ -86,6 +97,31 @@ function refreshEntries() {
         }
     );
 }
+
+function editEntryById() {
+    var date = sessionStorage.currentDate;
+    var calories = $('#calories').val();
+    var food = $('#food').val();
+    db.transaction(
+        function(transaction) {
+            transaction.executeSql(
+                'UPDATE requerimentos set dv=?, ano=?, endereco=? WHERE id=?;',
+                [dv, ano, endereco, id],
+                function(){
+                    refreshEntries();
+                    jQT.goBack();
+                },
+                errorHandler
+            );
+        }
+    );
+    return false;
+}
+
+function vistoriar(id) {
+    //funcao vistoriar, deverá chamar o form de vistorias, buscando o registro no banco do id repassado
+}
+
 function createEntry() {
     var date = sessionStorage.currentDate;
     var calories = $('#calories').val();
