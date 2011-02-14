@@ -1,0 +1,42 @@
+// Data is fetched with the Json.getAllRecords() call. getResponse() is the callback/success function.
+
+<div id="content"></div>
+
+<script type="text/javascript">
+
+Json.getAllRecords();
+
+function getResponse ( data )
+{
+	if (data.length > 0)
+	{
+		var str = '<table width="50%">';
+		str += '<tr><td>Date</td><td>Description</td></tr>';
+			
+		for (var i = 0; i < data.length; i ++)
+		{
+			str += '<tr>';
+			str += '<td>' + data[i].training_date + '</td>';
+			str += '<td>' + data[i].description + '</td>';
+			str += '</tr>';
+		}
+		
+		str += '</table>';
+
+		document.getElementById('content').innerHTML = str;
+
+	}
+}
+
+</script>
+
+<script type="text/javascript">
+// And here's the actual json code (It's actually enclosed in its own namespace, but this is easier to show)
+
+$.ajax({
+	dataType: 'jsonp',
+	url: 'http://www.site.com/json.php',
+	data: someData
+});
+
+</script>
