@@ -726,7 +726,7 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-icon {
-	background-image: url(../img/icons-18-white.png);
+	background-image: url(../img/icons18white.png);
 	background-repeat: no-repeat;
 	background-color: 					#666;
 	background-color: rgba(0,0,0,.4);
@@ -746,7 +746,7 @@ a.ui-link-inherit {
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-icon-black {
-	background-image: url(../img/icons-18-black.png);
+	background-image: url(../img/icons18black.png);
 }
 .ui-icon-black-disc {
 	background-color: 					#fff;
@@ -761,11 +761,11 @@ a.ui-link-inherit {
 
 @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max--moz-device-pixel-ratio: 2) {
 	.ui-icon {
-	background-image: url(../img/icons-36-white.png);
+	background-image: url(../img/icons36white.png);
 	background-size: 630px 18px;
 }
 	.ui-icon-black {
-	background-image: url(../img/icons-36-black.png);
+	background-image: url(../img/icons36black.png);
 }
 }
 
@@ -844,24 +844,24 @@ a.ui-link-inherit {
 	background-size: 20px 20px;
 }
 .ui-icon-checkbox-off {
-	background-image: url(../img/form-check-off.png);
+	background-image: url(../img/formcheckoff.png);
 }
 .ui-icon-checkbox-on {
-	background-image: url(../img/form-check-on.png);
+	background-image: url(../img/formcheckon.png);
 }
 .ui-icon-radio-off {
-	background-image: url(../img/form-radio-off.png);}
+	background-image: url(../img/formradiooff.png);}
 .ui-icon-radio-on {
-	background-image: url(../img/form-radio-on.png);
+	background-image: url(../img/formradioon.png);
 }
 .ui-icon-searchfield {
-	background-image: url(../img/icon-search-black.png);
+	background-image: url(../img/iconsearchblack.png);
 	background-size: 16px 16px;
 }
 
 /* loading icon */
 .ui-icon-loading {
-	background-image: url(../img/ajax-loader.png);
+	background-image: url(../img/ajaxloader.png);
 	width: 40px;
 	height: 40px;
 	-moz-border-radius: 20px;
@@ -1037,9 +1037,9 @@ a.ui-link-inherit {
 
 /*orientations from js are available */
 .portrait,
-.portrait .ui-page { min-height: 480px; }
+.portrait .ui-page { min-height: 100%; }/* original: 480px*/
 .landscape,
-.landscape .ui-page  { min-height: 320px; }
+.landscape .ui-page  { min-height: 100%; }/* original: 320px */
 
 /* loading screen */
 .ui-loading .ui-mobile-viewport { overflow: hidden !important; }
